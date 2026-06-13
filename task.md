@@ -15,8 +15,8 @@
 - [x] Add required scopes: `gmail.modify`, `drive.readonly`
 - [x] Generate a long-lived refresh token via [Google OAuth 2.0 Playground](https://developers.google.com/oauthplayground)
 - [x] Obtain a **Groq API key** from Groq's free tier
-- [ ] Create a GitHub repository for the agent *(deferred to Phase 8)*
-- [ ] Add GitHub Actions secrets *(deferred to Phase 8)*:
+- [x] Create a GitHub repository for the agent *(completed)*
+- [ ] Add GitHub Actions secrets *(pending)*:
   - [ ] `GOOGLE_CLIENT_ID`
   - [ ] `GOOGLE_CLIENT_SECRET`
   - [ ] `GOOGLE_REFRESH_TOKEN`
