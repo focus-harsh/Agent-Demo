@@ -1,0 +1,14 @@
+# Google API clients
+google-auth>=2.23.0
+google-auth-oauthlib>=1.1.0
+google-api-python-client>=2.100.0
+
+# LLM provider
+groq>=0.4.0
+
+# Document parsing
+PyPDF2>=3.0.0
+python-docx>=1.0.0
+
+# Environment variable loading (local dev)
+python-dotenv>=1.0.0

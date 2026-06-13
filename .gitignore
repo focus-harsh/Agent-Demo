@@ -1,0 +1,19 @@
+# Dependencies
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Secrets — NEVER commit
+.env
+credential_input.txt
+
+# Knowledge cache (regenerated at runtime)
+knowledge_cache/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
