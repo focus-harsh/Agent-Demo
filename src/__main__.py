@@ -7,6 +7,7 @@ import argparse
 import logging
 import sys
 import os
+import time
 
 # Load .env file for local development (no-op if python-dotenv not installed or .env missing)
 try:
@@ -16,6 +17,7 @@ except ImportError:
     pass
 
 from src.agent import run_agent
+from src.config import CHECK_INTERVAL_SECONDS
 
 
 def main():
@@ -44,14 +46,19 @@ def main():
         logging.getLogger().info("🔒 DRY RUN MODE — no drafts will be created, no labels applied.")
 
     try:
-        stats = run_agent(dry_run=args.dry_run)
+        while True:
+            stats = run_agent(dry_run=args.dry_run)
 
-        # Exit with code 0 on success, even if some individual emails had errors
-        if stats["errors"] > 0:
-            logging.getLogger().warning(f"{stats['errors']} email(s) had processing errors.")
+            # Log a warning if any individual emails had errors
+            if stats["errors"] > 0:
+                logging.getLogger().warning(f"{stats['errors']} email(s) had processing errors.")
 
+            logging.getLogger().info(f"Sleeping for {CHECK_INTERVAL_SECONDS} seconds before next check...")
+            time.sleep(CHECK_INTERVAL_SECONDS)
+
+    except KeyboardInterrupt:
+        logging.getLogger().info("Agent stopped by user.")
         sys.exit(0)
-
     except Exception as e:
         logging.getLogger().error(f"Agent run failed: {e}", exc_info=True)
         sys.exit(1)

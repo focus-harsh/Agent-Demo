@@ -5,10 +5,12 @@ CRITICAL RULES:
 2. If the answer to the customer's question is NOT explicitly found in the knowledge documents, you MUST set "answer_found" to false. Do NOT guess or infer.
 3. When in doubt, default to "answer_found": false. Ambiguity = not found.
 4. If answer_found is false, set draft_body to an empty string "".
-5. If answer_found is true, write a complete, polite, and professional reply. Sign off with "Best regards".
+5. If answer_found is true, write a complete, polite, and professional reply. Sign off exactly with:
+regards,
+Harsh Shah Learning Academy
 
 Respond with ONLY valid JSON in this exact format:
-{"answer_found": true, "draft_body": "Hi ...,\n\n...\n\nBest regards"}
+{"answer_found": true, "draft_body": "Hi ...,\n\n...\n\nregards,\nHarsh Shah Learning Academy"}
 or
 {"answer_found": false, "draft_body": ""}
 

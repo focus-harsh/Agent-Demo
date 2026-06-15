@@ -41,3 +41,6 @@ KNOWLEDGE_CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "
 # ─── Retry Settings ─────────────────────────────────────────
 MAX_RETRIES = 3
 RETRY_BASE_DELAY = 2   # seconds; exponential backoff: 2, 4, 8 …
+
+# ─── Polling Settings ───────────────────────────────────────
+CHECK_INTERVAL_SECONDS = 5
